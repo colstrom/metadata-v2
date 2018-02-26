@@ -1,0 +1,15 @@
+#! /usr/bin/env ruby
+# -*- ruby -*-
+
+require_relative '../lib/metadata/v2'
+
+metadata = Metadata::V2::Client.new
+response = metadata.keys
+
+case response.code
+when 'SUCCESS'
+  STDOUT.puts response.decode
+  exit 0
+else
+  exit 2
+end

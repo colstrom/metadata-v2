@@ -1,0 +1,20 @@
+#! /usr/bin/env ruby
+# -*- ruby -*-
+
+require_relative '../lib/metadata/v2'
+
+unless key = ARGV.first
+  STDERR.puts 'mdata-delete: Usage: mdata-delete <keyname>'
+  exit 3
+end
+
+metadata = Metadata::V2::Client.new
+response = metadata.delete key
+
+case response.code
+when 'SUCCESS'
+  exit 0
+else
+  STDERR.puts "Error deleting metadata key '#{key}': #{response.decode}"
+  exit 2
+end

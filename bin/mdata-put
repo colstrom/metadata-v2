@@ -1,0 +1,25 @@
+#! /usr/bin/env ruby
+# -*- ruby -*-
+
+require_relative '../lib/metadata/v2'
+
+unless key = ARGV.shift
+  STDERR.puts 'mdata-put: Usage: mdata-put <keyname> [ <value> ]'
+  exit 3
+end
+
+unless value = ARGV.shift || (STDIN.read unless STDIN.tty?)
+  STDERR.puts 'ERROR: either specify the metadata value as the second command-line argument, or pipe content to stdin.'
+  exit 2
+end
+
+metadata = Metadata::V2::Client.new
+response = metadata.put key, value
+
+case response.code
+when 'SUCCESS'
+  exit 0
+else
+  STDERR.puts "Error putting metadata for key '#{key}': #{response.decode}"
+  exit 2
+end

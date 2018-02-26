@@ -1,0 +1,24 @@
+#! /usr/bin/env ruby
+# -*- ruby -*-
+
+require_relative '../lib/metadata/v2'
+
+unless key = ARGV.first
+  STDERR.puts 'mdata-get: Usage: mdata-get <keyname>'
+  exit 3
+end
+
+metadata = Metadata::V2::Client.new
+response = metadata.get key
+
+case response.code
+when 'SUCCESS'
+  STDOUT.puts response.decode
+  exit 0
+when 'NOTFOUND'
+  STDERR.puts "No metadata for '#{ARGV.first}'"
+  exit 1
+else
+  STDERR.puts "Error getting metadata for key '#{key}': #{response.decode}"
+  exit 2
+end

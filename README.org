@@ -1,0 +1,29 @@
+#+TITLE: metadata-v2 - A Ruby Interface to the Joyent Metadata Protocol
+#+LATEX: \pagebreak
+
+* Overview
+  
+  ~metadata-v2~ provides protocol and socket abstractions to simplify
+  interactions with any metadata service that conforms to Version 2 of the
+  [[https://eng.joyent.com/mdata/protocol.html][Joyent Metadata Protocol Specification]].
+
+  Included are drop-in replacements for the [[https://github.com/joyent/mdata-client/][mdata-client]] tools:
+    - mdata-list
+    - mdata-get
+    - mdata-put
+    - mdata-delete
+
+* Why does this exist?
+
+  The [[https://github.com/joyent/mdata-client/][mdata-client]] tools are both portable and well-documented. You should use
+  them when available! ~metadata-v2~ only really becomes useful once you want to
+  do non-trivial things with your metadata service.
+
+* License
+
+  ~metadata-v2~ is available under the [[https://tldrlegal.com/license/mit-license][MIT License]]. See ~LICENSE.txt~ for the
+  full text.
+
+* Contributors
+
+  - [[https://colstrom.github.io/][Chris Olstrom]] | [[mailto:chris@olstrom.com][e-mail]] | [[https://twitter.com/ChrisOlstrom][Twitter]]

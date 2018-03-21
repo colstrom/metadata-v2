@@ -1,14 +1,14 @@
 Gem::Specification.new do |gem|
   tag = `git describe --tags --abbrev=0`.chomp
 
-  gem.name        = 'metadata-v2'
-  gem.homepage    = 'https://github.com/colstrom/metadata-v2'
-  gem.summary     = 'A Ruby Interface to the Joyent Metadata Protocol (Version 2)'
+  gem.name          = 'metadata-v2'
+  gem.homepage      = 'https://github.com/colstrom/metadata-v2'
+  gem.summary       = 'A Ruby Interface to the Joyent Metadata Protocol (Version 2)'
 
-  gem.version     = "#{tag}"
-  gem.licenses    = ['MIT']
-  gem.authors     = ['Chris Olstrom']
-  gem.email       = 'chris@olstrom.com'
+  gem.version       = "#{tag}"
+  gem.licenses      = ['MIT']
+  gem.authors       = ['Chris Olstrom']
+  gem.email         = 'chris@olstrom.com'
 
   gem.cert_chain    = ['trust/certificates/colstrom.pem']
   gem.signing_key   = File.expand_path ENV.fetch 'GEM_SIGNING_KEY'
